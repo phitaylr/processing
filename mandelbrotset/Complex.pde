@@ -1,8 +1,8 @@
 
 
 class Complex{
-   float a, b;
-   Complex(float a, float b){ //constructor
+   double a, b;
+   Complex(double a, double b){ //constructor
        this.a = a;
        this.b = b;
    }
@@ -15,8 +15,8 @@ class Complex{
      return new Complex(a*z.a - b*z.b, b*z.a + a*z.b); 
    }
    
-   float magnitude(){
-     return sqrt(a*a+b*b);
+   double magnitude(){
+     return Math.sqrt(a*a+b*b);
    }
   
 }
