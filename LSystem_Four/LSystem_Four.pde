@@ -8,6 +8,7 @@ float fc=0;
 void setup() {
   size(1080, 1080);
   lsys = new LSystem();
+  
 }
 void drawbg() {
   background(0);
@@ -23,18 +24,17 @@ void drawbg() {
 
 void draw() {
   drawbg();
-  lsys.display((int)fc);
-  fc+=map(lsys.level, 0, 12, .01, 20);
-  if (lsys.level < 13 && fc -30 > lsys.lines.size()) {
-    lsys.increment();
-    fc=0;
-    println(lsys.level);
-  }
-  saveFrame("frames/######.png");
+  lsys.display(Integer.MAX_VALUE);
+  fc+=4;
+  //if (lsys.level < 13 && fc -30 > lsys.lines.size()) {
+  //  lsys.increment();
+  //  fc=0;
+  //  println(lsys.level);
+  //}
+  //saveFrame("frames/######.png");
 }
 
 void mousePressed() {
+  save(String.format("%d.png", lsys.level));
   lsys.increment();
-  fc=0;
-  println(lsys.level);
 }

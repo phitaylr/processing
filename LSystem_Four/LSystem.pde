@@ -41,6 +41,7 @@ class LSystem {
   float angle;
   float startx, starty;
   float dist;
+  boolean done;
 
   LSystem() {
     level = 0;
@@ -101,13 +102,13 @@ class LSystem {
     }
 
     popMatrix();
+    println(level, lines.size());
   }
 
   void display(int ub) {
     //angle = PI/6.0 + PI/3.0*sin(frameCount / 100.0);
-    calculatePoints();
-    strokeWeight(1);
-
+    strokeWeight(max(18./level+1, 1));
+    stroke(255, 100);
     for (int i = 0; i < min(ub, lines.size()); i++) {
        lines.get(i).display();
     }
